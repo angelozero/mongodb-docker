@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var auth = require('./routes/auth');
+var register = require('./routes/register');
 
 var app = express();
 
@@ -19,13 +19,14 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static('static'))
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/auth', auth);
+app.use('/register', register);
 
 
 app.listen(3000, function () {

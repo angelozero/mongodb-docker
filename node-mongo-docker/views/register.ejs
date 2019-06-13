@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Register</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+
+<body class="container" onsubmit="negociacaoController.adiciona(event)">
+
+    <h1 class="text-center">User Register</h1>
+
+    <div id="mensagemView"></div>
+
+    <form class="form" method="POST" action="/register/save">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="user.name" class="form-control" autofocus />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="user.email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" id="user.password" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl">Photo Url</label>
+            <input type="text" id="user.imageUrl" class="form-control" />
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="text-center">
+            <button  class="btn btn-primary text-center">Teeste</button>
+        </div>
+    </form>
+
+
+    <br>
+    <br>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.post("/register/save",
+                    {
+                        "name": "Donald Duck"
+                    });
+            });
+        });
+    </script>
+
+</html>
