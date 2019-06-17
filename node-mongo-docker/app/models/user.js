@@ -4,23 +4,19 @@ const mongoose = require('../database/database');
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        require: false
     },
     email: {
         type: String,
-        unique: true,
-        required: true,
-        lowercase: true
+        require: false
     },
     password: {
         type: String,
-        required: true,
-        select: false
+        require: false
     },
     profileImageUrl: {
         type: String,
-        required: false,
-        select: false
+        require: false
     },
     createdAt: {
         type: Date,
