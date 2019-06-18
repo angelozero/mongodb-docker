@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 mongoose.set('useCreateIndex', true);
 
 mongoose.connect('mongodb://localhost:27017/node-api', { useNewUrlParser: true }, function (err) {
@@ -9,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/node-api', { useNewUrlParser: true }
   }
 })
 
+autoIncrement.initialize(mongoose.connection);
 mongoose.Promise = global.Promise;
 
 module.exports = mongoose;

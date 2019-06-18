@@ -13,10 +13,11 @@ var register = require('../routes/register');
 
 var app = express();
 
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../public')));
+// app.use(express.static(path.join(__dirname, '../../public/')));
 app.use('/static', express.static('static'))
 app.use('/required', express.static('required'));
 
